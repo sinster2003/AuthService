@@ -64,7 +64,8 @@ dependencies {
     /* Lombok dependencies */
 
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    implementation 'org.projectlombok:lombok:1.18.42'
+    compileOnly 'org.projectlombok:lombok:1.18.42'
+    annotationProcessor 'org.projectlombok:lombok:1.18.42'
 
     // This dependency is used by the application.
     implementation libs.guava

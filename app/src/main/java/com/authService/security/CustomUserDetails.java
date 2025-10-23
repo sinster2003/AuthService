@@ -1,4 +1,4 @@
-package com.authService.service;
+package com.authService.security;
 
 import com.authService.entities.UserInfo;
 import com.authService.entities.UserRole;
