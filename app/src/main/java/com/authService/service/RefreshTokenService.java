@@ -32,7 +32,7 @@ public class RefreshTokenService {
         this.refreshTokenRepository = refreshTokenRepository;
     }
 
-    public RefreshToken createRefreshToken(String username) {
+    public RefreshToken createRefreshToken(String username) throws UsernameNotFoundException {
         // fetch user from db
         Optional<UserInfo> user = userRepository.findByUsername(username);
 
@@ -56,7 +56,7 @@ public class RefreshTokenService {
         return refreshTokenRepository.findByToken(token);
     }
 
-    public RefreshToken verifyExpiration(RefreshToken token) {
+    public RefreshToken verifyExpiration(RefreshToken token) throws RuntimeException {
         if(token.getExpiryDate().compareTo(Instant.now()) < 0) {
             // expired token
             refreshTokenRepository.delete(token);
