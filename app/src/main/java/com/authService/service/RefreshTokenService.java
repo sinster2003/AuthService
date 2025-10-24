@@ -1,7 +1,7 @@
 package com.authService.service;
 
-import com.authService.entities.RefreshToken;
-import com.authService.entities.UserInfo;
+import com.authService.model.entity.RefreshToken;
+import com.authService.model.entity.UserInfo;
 import com.authService.repository.RefreshTokenRepository;
 import com.authService.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

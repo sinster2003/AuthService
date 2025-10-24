@@ -1,4 +1,4 @@
-package com.authService.entities;
+package com.authService.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

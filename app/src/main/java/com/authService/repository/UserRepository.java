@@ -1,6 +1,6 @@
 package com.authService.repository;
 
-import com.authService.entities.UserInfo;
+import com.authService.model.entity.UserInfo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

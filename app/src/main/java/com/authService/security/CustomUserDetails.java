@@ -1,7 +1,7 @@
 package com.authService.security;
 
-import com.authService.entities.UserInfo;
-import com.authService.entities.UserRole;
+import com.authService.model.entity.UserInfo;
+import com.authService.model.entity.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
