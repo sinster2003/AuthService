@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -25,9 +26,12 @@ import java.util.UUID;
 public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserRepository userRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    public UserDetailsServiceImpl(UserRepository userRepository) {
+    public UserDetailsServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // reads the user from the database and returns in the standardized spring security UserDetails version
@@ -49,7 +53,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public Boolean signupUser(UserInfoDTO userInfoDTO) {
         // wip: input and userDTO validation needs to be done
 
-        // wip: hash the password
+        // hash the password
+        userInfoDTO.setPassword(passwordEncoder.encode(userInfoDTO.getPassword()));
 
         if(Objects.nonNull(checkIfUserAlreadyExist(userInfoDTO))) {
             System.out.println("User already exists");
