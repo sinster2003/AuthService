@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class JWTResponseToken {
+public class JWTResponseDTO {
     @NotBlank(message = "Access Token is required")
     private String accessToken;
 
